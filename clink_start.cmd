@@ -1,6 +1,10 @@
 @echo off
 IF EXIST %~dp0..\poshfiles\starship.toml set STARSHIP_CONFIG=%~dp0..\poshfiles\starship.toml
 
+REM install scripts:
+pwsh -NoLogo -NoProfile -NonInteractive -Command "& '%~dp0install-scripts.ps1'"
+
+REM aliases:
 doskey st=git status $*
 doskey k=kubectl $*
 doskey add=if "$*" == "" ( git add -A :/ ) else ( git add $* )
