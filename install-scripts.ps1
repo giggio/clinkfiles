@@ -8,3 +8,9 @@ function Add-Script([string] $scriptPath) {
 }
 Add-Script (Join-Path $PSScriptRoot "clink-completions")
 Add-Script (Join-Path $PSScriptRoot "clink-fzf")
+
+if (!(Test-Path (Join-Path $PSScriptRoot "z.cmd"))) {
+    Write-Output "Downloading z files..."
+    Invoke-RestMethod https://raw.githubusercontent.com/skywind3000/z.lua/master/z.cmd -OutFile (Join-Path $PSScriptRoot "z.cmd")
+    Invoke-RestMethod https://raw.githubusercontent.com/skywind3000/z.lua/master/z.lua -OutFile (Join-Path $PSScriptRoot "z.lua")
+}

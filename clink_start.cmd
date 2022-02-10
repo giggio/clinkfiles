@@ -1,6 +1,9 @@
 @echo off
 IF EXIST %~dp0..\poshfiles\starship.toml set STARSHIP_CONFIG=%~dp0..\poshfiles\starship.toml
 
+REM setting path to this directory
+set PATH=%PATH%;%~dp0
+
 REM install scripts:
 pwsh -NoLogo -NoProfile -NonInteractive -Command "& '%~dp0install-scripts.ps1'"
 
