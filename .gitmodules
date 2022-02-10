@@ -1,3 +1,6 @@
 [submodule "clink-completions"]
 	path = clink-completions
 	url = https://github.com/vladimir-kotikov/clink-completions.git
+[submodule "clink-fzf"]
+	path = clink-fzf
+	url = https://github.com/chrisant996/clink-fzf.git
