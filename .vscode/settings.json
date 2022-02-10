@@ -1,0 +1,6 @@
+{
+    "files.exclude": {
+        "clink_history_*": true,
+        "clink.log": true
+    }
+}
