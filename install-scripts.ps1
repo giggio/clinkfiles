@@ -1,4 +1,13 @@
 $clink = "${env:ProgramFiles(x86)}\clink\clink_x64.exe"
+if (!(Test-Path $clink)) {
+    $clinkCmd = Get-Command clink
+    if ($clinkCmd) {
+        $clink = $clinkCmd.Source
+    } else {
+        Write-Error "clink not found"
+        exit 1
+    }
+}
 $scripts = $(. $clink installscripts --list)
 function Add-Script([string] $scriptPath) {
     if ("$scripts" -notlike "*$scriptPath*") {
